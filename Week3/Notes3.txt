@@ -1,0 +1,228 @@
+Sorts were the focus this week
+
+searching
+With memory and stored items there must be a way to search and find the values
+For i from 0 to n–1
+    If i'th element is 50
+        Return true
+Return false
+This is a simple psuedocode search
+This would be an example of a linear search, going in order item by item searching for a certian value or range of values
+
+look in each locker, or at each element, one at a time, from the beginning to the end.
+This is called linear search, where we move in a line, since our array isn’t sorted.
+start in the middle and move left or right depending on what we’re looking for, if our array of items is sorted.
+This is called binary search, since we can divide our problem in two with each step.
+Binary searches are much more effeicient then linear searches
+
+Big O
+effeiciancy and speed is pivital when running code
+with the searches using a binary search would be better because it is faster
+The way we mesure run times is by a notation called Big O
+there are some common running times:
+O(n2)
+O(n log n)
+O(n)
+(linear search)
+O(log n)
+(binary search)
+O(1)
+A linear search in C looks like this
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    // An array of numbers
+    int numbers[] = {4, 8, 15, 16, 23, 42};
+
+    // Search for 50
+    for (int i = 0; i < 6; i++)
+    {
+        if (numbers[i] == 50)
+        {
+            printf("Found\n");
+            return 0;
+        }
+    }
+    printf("Not found\n");
+    return 1;
+}
+It gets the job done and works for all types but is very slow
+
+Strucs
+Structs are custom data types.
+With it you can save things in many ways not limited to intergers or chars
+With it you can make good combinations like this
+ude <cs50.h>
+#include <stdio.h>
+#include <string.h>
+
+typedef struct
+{
+    string name;
+    string number;
+}
+person;
+
+int main(void)
+{
+    person people[4];
+
+    people[0].name = "EMMA";
+    people[0].number = "617–555–0100";
+
+    people[1].name = "RODRIGO";
+    people[1].number = "617–555–0101";
+
+    people[2].name = "BRIAN";
+    people[2].number = "617–555–0102";
+
+    people[3].name = "DAVID";
+    people[3].number = "617–555–0103";
+
+    // Search for EMMA
+    for (int i = 0; i < 4; i++)
+    {
+        if (strcmp(people[i].name, "EMMA") == 0)
+        {
+            printf("Found %s\n", people[i].number);
+            return 0;
+        }
+    }
+    printf("Not found\n");
+    return 1;
+}
+
+Sorting
+Simular to searches with all of them working but some being faster in certain situations
+If our input is an unsorted list of numbers, there are many algorithms we could use to produce an output of a sorted list.
+With eight volunteers on the stage with the following numbers, we might consider swapping pairs of numbers next to each other as a first step.
+Our volunteers start in the following random order:
+6 3 8 5 2 7 4 1
+We look at the first two numbers, and swap them so they are in order:
+6 3 8 5 2 7 4 1
+– –
+3 6 8 5 2 7 4 1
+The next pair, 6 and 8, are in order, so we don’t need to swap them.
+The next pair, 8 and 5, need to be swapped:
+3 6 8 5 2 7 4 1
+    – –
+3 6 5 8 2 7 4 1
+We continue until we reach the end of the list:
+3 6 5 2 8 7 4 1
+        – –
+3 6 5 2 7 8 4 1
+          – –
+3 6 5 2 7 4 8 1
+            – –
+3 6 5 2 7 4 1 8
+Our list isn’t sorted yet, but we’re slightly closer to the solution because the biggest value, 8, has been shifted all the way to the right.
+We repeat this with another pass through the list:
+3 6 5 2 7 4 1 8
+– –
+3 6 5 2 7 4 1 8
+  – –
+3 5 6 2 7 4 1 8
+    – –
+3 5 2 6 7 4 1 8
+      – –
+3 5 2 6 7 4 1 8
+        – –
+3 5 2 6 4 7 1 8
+            – –
+3 5 2 6 4 1 7 8
+This is an example of a bubble sort. clearly it is not very effienct and would be avoided most often however it still sorts your code
+Its not limited to numbers, chars or even if defined well strings can be sorted as well.
+
+Selection sort
+an take another approach with the same set of numbers:
+6 3 8 5 2 7 4 1
+First, we’ll look at each number, and remember the smallest one we’ve seen. Then, we can swap it with the first number in our list, since we know it’s the smallest:
+6 3 8 5 2 7 4 1
+–             –
+1 3 8 5 2 7 4 6
+Now we know at least the first element of our list is in the right place, so we can look for the smallest element among the rest, and swap it with the next unsorted element (now the second element):
+1 3 8 5 2 7 4 6
+  –     –
+1 2 8 5 3 7 4 6
+We can repeat this over and over, until we have a sorted list.
+This algorithm is called selection sort, and we might write pseudocode like this:
+For i from 0 to n–1
+    Find smallest item between i'th item and last item
+    Swap smallest item with i'th item
+Same speed as the bubble sort
+
+Recusion
+Similar to the binary search we can do the same with a merge sort.
+Sorts are essantail searches that also rearrange values.
+We can take the idea of recusion to sorting, with another algorithm called merge sort. The pseudocode might look like:
+If only one item
+  Return
+Else
+    Sort left half of items
+    Sort right half of items
+    Merge sorted halves
+We’ll best see this in practice with an unsorted list:
+7 4 5 2 6 3 8 1
+First, we’ll sort the left half (the first four elements):
+7 4 5 2 | 6 3 8 1
+– – – –
+Well, to sort that, we need to sort the left half of the left half first:
+7 4 | 5 2 | 6 3 8 1
+– –
+Now, we have just one item, 7, in the left half, and one item, 4, in the right half. So we’ll merge that together, by taking the smallest item from each list first:
+– – | 5 2 | 6 3 8 1
+4 7
+And now we go back to the right half of the left half, and sort it:
+– – | – – | 6 3 8 1
+4 7 | 2 5
+Now, both halves of the left half are sorted, so we can merge the two of them together. We look at the start of each list, and take 2 since it’s smaller than 4. Then, we take 4, since it’s now the smallest item at the front of both lists. Then, we take 5, and finally, 7, to get:
+– – – – | 6 3 8 1
+– – – –
+2 4 5 7
+We now sort the right half the same way. First, the left half of the right half:
+– – – – | – – | 8 1
+– – – – | 3 6 |
+2 4 5 7
+Then, the right half of the right half:
+– – – – | – – | – –
+– – – – | 3 6 | 1 8
+2 4 5 7
+We can merge the right half together now:
+– – – – | – – – –
+– – – – | – – – –
+2 4 5 7 | 1 3 6 8
+And finally, we can merge both halves of the whole list, following the same steps as before. Notice that we don’t need to check all the elements of each half to find the smallest, since we know that each half is already sorted. Instead, we just take the smallest element of the two at the start of each half:
+– – – – | – – – –
+– – – – | – – – –
+2 4 5 7 | – 3 6 8
+1
+– – – – | – – – –
+– – – – | – – – –
+– 4 5 7 | – 3 6 8
+1 2
+– – – – | – – – –
+– – – – | – – – –
+– 4 5 7 | – – 6 8
+1 2 3
+– – – – | – – – –
+– – – – | – – – –
+– – 5 7 | – – 6 8
+1 2 3 4
+– – – – | – – – –
+– – – – | – – – –
+– – – 7 | – – 6 8
+1 2 3 4   5
+– – – – | – – – –
+– – – – | – – – –
+– – – 7 | – – – 8
+1 2 3 4   5 6
+– – – – | – – – –
+– – – – | – – – –
+– – – – | – – – 8
+1 2 3 4   5 6 7
+– – – – | – – – –
+– – – – | – – – –
+– – – – | – – – –
+1 2 3 4   5 6 7 8
