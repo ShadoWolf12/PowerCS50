@@ -1,0 +1,140 @@
+This week we introduced C. the Stubborn old lady of code.
+
+Section one C
+The words are different from scratch but serve the same function. Printf in C is the same as "Say" in scratch.
+The blocks in scratch are the same commands that are in C just in different form.
+
+Hello World
+Like scratch you can say hello world by inputing
+printf("Hello World");
+However where is the green flag to play the code?
+Turns out before you can run your code you must make it a function.
+that looks like this
+int main(void) {
+  "Your code fits in here"
+}
+What this means is for the function main the output will be void(0). 
+So the code would run through and output void.
+But once again your code is still not ready to run.
+We are making commands in the language C but how can the computer know that?
+Can you command your french-english translator in spanish to say hello world in french?
+Exactly it doesnt make sense.
+When you code, you are essentailly telling your french-english translator a passage in english and having him translate it for you.
+Code always tranlates code into computer language binary.
+Turns out their is a way to tell your computer which langauge your using
+
+#include
+This is not the newest woke instgram trend, this tells your code which langauge you are speaking(as well as your file name ".c" mentioned in later lesson)
+ #include <stdio.h>
+ For C this is often the directory that is called.
+ 
+ Compilers
+ Compilers are what makes your code
+ 1.Save
+ 2.Change source code into machine code
+ 3.Give assembly output.
+ Compiling is what updates your computers version of the code. If you run your code after you made changes without compiling, your old code would run
+ making for a frustrating few moments
+ This is also when your commands are translated into machine code.
+ This is like telling your translator to ask the waiter for some water.
+ First you speak your language that matches with what you told the translator
+ This first language is known as source code
+ The tranlator then in their brain chnages it to the waiters language known as machine code
+ Now your code is ready to run and the command you made resulted in a glass of water.
+ When you compile it makes a new file called the assembly output
+ It is something that in every area where that file is saved if typed into the terminal will run your code
+ 
+ Strings
+ Strings are an array of chars by definition
+ Simply put they are sentances, or words in your code.
+ This section spends a lot of time on user input for strings in one method
+ However the one I use that works in every directory for C(while the other is limited)
+ is this
+ scanf
+ Scanf is a little scary as you must tell which type of input it is and call the memory point with a pointer
+ but all you need to know for now is
+ scanf("%type", &nameofinput);
+ their are a few different types
+ %s = string
+ %d = interger(D for digit)
+ %c = char(character)
+ Those are the main three however it could also technically be
+ %b = bolean(a true false)
+ Also they did some debugging but it all boils down to
+ C is a stubborn old lady
+ Every part must be right verbatum
+ no missing qoutes "
+ No missing parathises (
+ And dont even think about leaving out a semicolin ;
+ 
+ Scratch blocks in C
+ This section covers some helpful blocks of code
+ if (x < y)
+{
+    printf("x is less than y\n");
+}
+This checks intergers x and y and if X is smaller than y then it prints the statement.
+This type of check is integeral to most projects
+what if x is equal to or larger?
+if (x < y)
+{
+    printf("x is less than y\n");
+}
+else
+{
+    printf("x is not less than y\n");
+}
+Well then it will print the else statement.
+You can even add other options by putting in an elseif
+if (x < y)
+{
+    printf("x is less than y\n");
+}
+else if (x > y)
+{
+    printf("x is greater than y\n");
+}
+else if (x == y)
+{
+    printf("x is equal to y\n");
+}
+Now what if you wanted your code to loop? so you can run the same thing over again?
+int i = 0;
+while (i < 50)
+{
+    printf("hello, world\n");
+    i++;
+}
+What this is saying is run the code that prints hello world over and over while i is less than 50
+the i++; is a counter
+i=0 but every time the code runs it adds by 1
+so eventually i will be greater than 50 and stop running
+
+Types formats and orperators
+There are other types we can use for our variables
+bool, a Boolean expression of either true or false
+char, a single character like a or 2
+double, a floating-point value with even more digits
+float, a floating-point value, or real number with a decimal value
+int, integers up to a certain size, or number of bits
+long, integers with more bits, so they can count higher
+string, a string of characters
+And the CS50 library has corresponding functions to get input of various types:
+get_char
+get_double
+get_float
+get_int
+get_long
+get_string
+For printf, too, there are different placeholders for each type:
+%c for chars
+%f for floats, doubles
+%i for ints
+%li for longs
+%s for strings
+And there are some mathematical operators we can use:
++ for addition
+- for subtraction
+* for multiplication
+/ for division
+% for remainder
