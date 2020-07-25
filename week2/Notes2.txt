@@ -1,0 +1,94 @@
+The main focus for this week was arrays
+
+Compiling
+Goes in depth with each step of compiling but for our purposes everything we needed to know about compiling has already been recored
+
+Debugging
+Bugs are mistakes in programs that we didn’t intend to make. And debugging is the process of finding and fixing bugs
+Go through your code to remove bugs regularly
+Practice debugging
+
+Data types
+In C, we have different types of variables we can use for storing data:
+bool 1 byte
+char 1 byte
+int 4 bytes
+float 4 bytes
+long 8 bytes
+double 8 bytes
+string ? bytes
+Each of these types take up a certain number of bytes per variable we create, and the sizes above are what the sandbox, IDE, and most likely your computer uses for each type in C.
+
+Memory
+RAM, Random access memory is in all computers
+All things that run are copied to the RAM temporally and moves much faster
+they are saved in a grid type manner and chars take  byte while intergers take 4
+
+Arrays
+Used to store values that can be acessed
+#include <stdio.h>
+
+int main(void)
+{
+    char c1 = 'H';
+    char c2 = 'I';
+    char c3 = '!';
+    printf("%c %c %c\n", c1, c2, c3);
+}
+These are three separate values. Lets say we want to store them
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    // Scores
+    int scores[3];
+    scores[0] = 72;
+    scores[1] = 73;
+    scores[2] = 33;
+
+    // Print average
+    printf("Average: %i\n", (scores[0] + scores[1] + scores[2]) / 3);
+}
+With this notation we can save it into one array in this case scores
+int scores[3] makes it so that the array can store three values
+However we can put any number their or even a varible
+#include <cs50.h>
+#include <stdio.h>
+
+float average(int length, int array[]);
+
+int main(void)
+{
+    // Get number of scores
+    int n = get_int("Scores:  ");
+
+    // Get scores
+    int scores[n];
+    for (int i = 0; i < n; i++)
+    {
+        scores[i] = get_int("Score %i: ", i + 1);
+    }
+
+    // Print average
+    printf("Average: %.1f\n", average(n, scores));
+}
+
+float average(int length, int array[])
+{
+    int sum = 0;
+    for (int i = 0; i < length; i++)
+    {
+        sum += array[i];
+    }
+    return (float) sum / (float) length;
+}
+Strings or any other type can alos be saved in arrays
+string names[4];
+names[0] = "EMMA";
+names[1] = "RODRIGO";
+names[2] = "BRIAN";
+names[3] = "DAVID";
+
+printf("%s\n", names[0]);
+printf("%c%c%c%c\n", names[0][0], names[0][1], names[0][2], names[0][3]);
