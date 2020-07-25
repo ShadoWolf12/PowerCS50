@@ -1,0 +1,37 @@
+We learned pathon this week.
+we learned everything besides data structures and memory.
+simular to psuedocode they use print, it is very simple most commands are just words
+instead of a compiler we use an interpriter because it needs separate code to run
+get_item is what is used instead of scanf. 
+answer = get_string("What's your name?\n")
+print("hello, " + answer)                                                                      
+print also accepts format strings like f"hello, {answer}", which substitutes variables inside curly braces into a string.
+We can create variables with just counter = 0. To increment a variable, we can use counter = counter + 1 or counter += 1.
+Conditions look like:
+if x < y:
+    print("x is less than y")
+elif x > y:
+    print("x is greater than y")
+else:
+    print("x is equal to y")
+In Python, there are many data types:
+bool, True or False
+float, real numbers
+int, integers
+str, strings
+range, sequence of numbers
+list, sequence of mutable values, that we can change or add or remove
+tuple, sequence of immutable values, that we can’t change
+dict, collection of key/value pairs, like a hash table
+set, collection of unique valuesIn Python, there are many data types:
+bool, True or False
+float, real numbers
+int, integers
+str, strings
+range, sequence of numbers
+list, sequence of mutable values, that we can change or add or remove
+tuple, sequence of immutable values, that we can’t change
+dict, collection of key/value pairs, like a hash table
+set, collection of unique values
+Aside from these few differences c and pathon are very simular
+The rest is example of pathon code
