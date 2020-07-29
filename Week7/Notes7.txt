@@ -1,0 +1,128 @@
+This week was about SQL
+
+Spreadsheets
+  A spreadsheet like the ones on google spreadsheets are databases
+  they can be used to store and orginize information
+  In python we can mimic the spreadsheet by calling and openning it
+  once the database is opened we can now minipulate it with python
+  With this program we can count how many times a title of a favorite show was chosen
+  import csv
+
+  counts = {}
+
+  with open("CS50 2019 - Lecture 7 - Favorite TV Shows (Responses) - Form Responses 1.csv", "r") as file:
+      reader = csv.DictReader(file)
+
+      for row in reader:
+          title = row["title"]
+          if title in counts:
+              counts[title] += 1
+          else:
+              counts[title] = 1
+
+  for title, count in counts.items():
+      print(title, count, sep=" | ")
+
+      We can even sort the titles first
+      for title, count in sorted(counts.items(), key=lambda item: item[1], reverse=True):
+
+While this method does work, there is a language much better suited for database interaction and that is SQL
+
+SQL
+  sqlite> SELECT title FROM favorites ORDER BY title;
+  title
+  /
+  24
+  9009
+  Adventure Time
+  Airplane Repo
+  Always Sunny
+  Ancient Aliens
+  ...
+  With that simple line of code we were able to sort the data.
+  Even counting is straight foward with SQL
+  sqlite> SELECT title, COUNT(title) FROM favorites GROUP BY title;
+  ititle | COUNT(title)
+  / | 1
+  24 | 1
+  9009 | 1
+  Adventure Tme | 1
+  Airplane Repo | 1
+  Always Sunny | 1
+  Ancient Aliens | 1
+  
+    We can even set the count of each title to a new variable, n, and order our results by that, in descending order. Then we can see the top 10 results with LIMIT 10:
+  sqlite> SELECT title, COUNT(title) AS n FROM favorites GROUP BY title ORDER BY n DESC LIMIT 10;
+  title | n
+  The Office | 30
+  Friends | 20
+  Game of Thrones | 20
+  Breaking Bad | 14
+  Black Mirror | 9
+  Rick and Morty | 9
+  Brooklyn Nine-Nine | 5
+  Game of thrones | 5
+  No | 5
+  Prison Break | 5
+  SQL is a language that lets us work with a relational database, an application lets us store data and work with them more quickly than with a CSV.
+
+  It turns out that, when working with data, we only need four operations:
+  CREATE
+  READ
+  UPDATE
+  DELETE
+  In SQL, the commands to perform each of these operations are:
+  INSERT
+  SELECT
+  UPDATE
+  DELETE
+  First, we’ll need to insert a table with the CREATE TABLE table (column type, ...); command.
+  SQL, too, has its own data types to optimize the amount of space used for storing data:
+  BLOB, for “binary large object”, raw binary data that might represent files
+  INTEGER
+  smallint
+  integer
+  bigint
+  NUMERIC
+  boolean
+  date
+  datetime
+  numeric(scale,precision), which solves floating-point imprecision by using as many bits as needed, for each digit before and after the decimal point
+  time
+  timestamp
+  REAL
+  real, for floating-point values
+  double precision, with more bits
+  TEXT
+  char(n), for an exact number of characters
+  varchar(n), for a variable number of characters, up to a certain limit
+  text
+  SQLite is one database application that supports SQL, and there are many companies with server applications that support SQL, includes Oracle Database, MySQL, PostgreSQL, MariaDB, and Microsoft Access.
+  After inserting values, we can use functions to perform calculations, too:
+  AVG
+  COUNT
+  DISTINCT, for getting distinct values without duplicates
+  MAX
+  MIN
+  …
+  There are also other operations we can combine as needed:
+  WHERE, matching on some strict condition
+  LIKE, matching on substrings for text
+  LIMIT
+  GROUP BY
+  ORDER BY
+  JOIN, combining data from multiple tables
+IMDb
+  Stands for Internet Movie Database
+  Examples of how they run it.
+  Different sections need to be made and searchable so they can sort everythng into their spots.
+Multiple tables
+  A bit confusing but the same idea
+  Now instead of only one step down with one table you can place a table in a table
+  or have them separated but have a common value so they are like linked lists
+  Example genre
+  With the new genre table, even movies with multiple tags can be found in one or more catory table
+Problems
+Two milk cartons in the fridge problem
+fixed by either forcing code to not open file again or leaving a note 
+something to alert the computer the file is already being transfered
