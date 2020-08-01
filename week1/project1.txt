@@ -1,1 +1,82 @@
-No project this week(was on scratch)
+Problem Set 1
+Hello.c
+#include <stdio.h>
+
+int main(void) {
+  printf("Hello World\n");
+  return 0;
+}
+
+Mario.c
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+char height[128];
+int main (void){
+  while(1){
+    printf("How tall do you want the pryrimid to be?(1-8, press 0 to exit loop)\n");
+    scanf("%s", &height );
+    if (strcmp(height, "1") == 0){
+      printf("# #\n");
+    }
+    else if (strcmp(height, "2") == 0){
+      
+      printf(" # #\n");
+      printf("## ##\n");
+
+    }
+    else if (strcmp(height, "3") == 0){
+      printf("  # #\n");
+      printf(" ## ##\n");
+      printf("### ###\n");
+    }
+    else if (strcmp(height, "4") == 0){
+      printf("   # #\n");
+      printf("  ## ##\n");
+      printf(" ### ###\n");
+      printf("#### ####\n");
+    }
+    else if (strcmp(height, "5") == 0){
+      printf("    # #\n");
+      printf("   ## ##\n");
+      printf("  ### ###\n");
+      printf(" #### ####\n");
+      printf("##### #####\n");
+    }
+    else if (strcmp(height, "6") == 0){
+      printf("     # #\n");
+      printf("    ## ##\n");
+      printf("   ### ###\n");
+      printf("  #### ####\n");
+      printf(" ##### #####\n");
+      printf("###### ######\n");
+    }
+    else if (strcmp(height, "7") == 0){
+      printf("      # #\n");
+      printf("     ## ##\n");
+      printf("    ### ###\n");
+      printf("   #### ####\n");
+      printf("  ##### #####\n");
+      printf(" ###### ######\n");
+      printf("####### #######\n");
+    }
+    else if (strcmp(height, "8") == 0){
+      printf("       # #\n");
+      printf("      ## ##\n");
+      printf("     ### ###\n");
+      printf("    #### ####\n");
+      printf("   ##### #####\n");
+      printf("  ###### ######\n");
+      printf(" ####### #######\n");
+      printf("######## ########\n");
+    }
+    else if (strcmp(height, "0") == 0){
+      break;
+    }
+    else{
+      printf("Please follow instructions\n");
+    }
+  }
+  printf("Have a nice day!");
+  return 0;
+}
