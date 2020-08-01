@@ -7,7 +7,7 @@ int main(void) {
   return 0;
 }
 
-Mario.c
+Old Mario.c
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -80,3 +80,52 @@ int main (void){
   printf("Have a nice day!");
   return 0;
 }
+
+
+New and improved Mario.c
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int main (void){
+  char space;
+  space = ' ';
+  char block;
+  block = '#';
+  int height;  
+  printf("How tall do you want the pryrimid to be?(1-8, press 0 to exit loop)\n");
+  scanf("%d", &height );
+  int level;
+
+  for (level = 1; level < height + 1; level++)
+  {
+    char *line = (char*) malloc(32*sizeof(char));
+    int numLeadingSpaces; 
+    numLeadingSpaces= height - level;
+    int numBlocks;
+    numBlocks = level;
+    int j;
+    for(j =0; j< numLeadingSpaces; j++)
+    {
+      strncat(line, &space, 1); 
+    }
+    for(j =0; j< numBlocks; j++)
+    {
+      strncat(line, &block, 1); 
+    }
+    strncat(line, &space, 1); 
+    for(j =0; j< numBlocks; j++)
+    {
+      strncat(line, &block, 1); 
+    }
+    printf( "%s\n",line);
+  }
+  printf("Have a nice day!");
+  return 0;
+}
+//-  # #-s=height-level
+//- ## ##-s=height-level 
+//-### ###-s=height-level
+//-  # #-s=height-level
+//- ## ##-s=height-level 
+//-### ###-s=height-level
