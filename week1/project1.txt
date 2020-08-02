@@ -202,4 +202,51 @@ int main()
 //divid by 10 with remander checksum % 10=remainder
 //if remainder= 0 valid number. if not invalid
 
+credit.c improved
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <math.h>
+#include <stdbool.h>
+int main()  
+{ 
+  //while(1){ 
+    int countDigits = 0; 
+    char number[countDigits];
+    printf("What is your credit card number?\n");
+    number[countDigits] = scanf("%s",&number);  
+      
+    //countDigitss each character except space  
+    for(int i = 0; i < strlen(number); i++) {  
+      if(number[i] != ' '){  
+          countDigits++;  
+      }
+    }  
+      
+    //Displays the total number of characters present in the given string  
+    printf("Total number of characters in a string: %d", countDigits);
+    int totalSum;
+    bool isSecondNum;
+    isSecondNum = false;
+    int digitPos;
+    for(digitPos=countDigits-1; digitPos >= 0; digitPos--){
+      int digit = number[digitPos] -'0';
+      if (isSecondNum){
+        digit = digit*2;
+      }
+      totalSum=totalSum+digit;
+      isSecondNum =!isSecondNum;
+    }
+    bool isValid;
+    isValid =(totalSum % 10 == 0);
+
+  return 0;  
+}
+//-store in an array or lisy
+//multiply by 2 every other number start second last number
+//(n-1)-2^L=double function
+//add results of each double(n)+double(n)=doublesum
+//doublesum+normalsum=checksum
+//divid by 10 with remander checksum % 10=remainder
+//if remainder= 0 valid number. if not invalid
 
