@@ -1,0 +1,8 @@
+A look back
+Nothing new just short review and seeing how far we have come in these last few weeks.
+Privacy
+Talks about how simple passwords work because if someone wanted to even complex passwords can be found by computers easily now
+just iterate over every possible input
+Introduces final project
+All up to us we are free to code
+There will be a cs50 fair at the end to show our work
